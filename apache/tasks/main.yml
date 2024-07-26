@@ -1,0 +1,17 @@
+---
+# tasks file for apache
+- name: Installing httpd
+  ansible.builtin.yum:
+   name: httpd
+   state: present
+
+- name: Starting the service
+  ansible.builtin.service:
+   name: httpd
+   state: started
+   enabled: true
+
+- name: Copy index.html
+  ansible.builtin.template:
+   src: index.j2
+   dest: /var/www/html/index.html

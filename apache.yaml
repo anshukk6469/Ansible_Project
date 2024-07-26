@@ -1,0 +1,6 @@
+---
+- name: deploy apache
+  hosts: all
+  become: true
+  roles:
+   - apache

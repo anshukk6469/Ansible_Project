@@ -1,0 +1,8 @@
+- name: Manage postgres
+  hosts: dev
+  become: true
+  vars:
+    postgresql_version: "13"
+    postgresql_password: "redhat"
+  roles:
+    - rhel-system-roles.postgresql
