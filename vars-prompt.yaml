@@ -1,0 +1,15 @@
+---
+- name: Creating user with password
+  hosts: all
+  vars_prompt:
+   - name: user_name
+     prompt: What is the user name?
+     private: false
+   - name: user_pass
+     prompt: What is the user password?
+     private: true
+  become: true
+  tasks:
+   - name: Printing the user
+     debug:
+      msg: "This is {{ user_name }} and password is {{ user_pass }}"

@@ -1,0 +1,22 @@
+---
+- name: Installing webserver
+  hosts: all
+  vars:
+   - pkg_name: httpd
+  become: true
+  tasks:
+   - name: Installing {{ pkg_name }}
+     ansible.builtin.yum:
+      name: "{{ pkg_name }}"
+      state: present
+
+   - name: Starting the service
+     ansible.builtin.service:
+      name: "{{ pkg_name }}"
+      state: started
+      enabled: true
+  
+   - name: Copy index.html
+     ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/index.html

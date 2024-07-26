@@ -1,0 +1,10 @@
+---
+- name: Creating user with password
+  hosts: all
+  vars_files:
+   - filevar.yaml
+  become: true
+  tasks:
+   - name: Printing the user
+     debug:
+      msg: "This is {{ user_name }} and password is {{ user_pass }}"
