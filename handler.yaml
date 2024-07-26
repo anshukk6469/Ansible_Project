@@ -1,0 +1,22 @@
+---
+- name: Ignoring errors
+  hosts: all
+  become: true
+  tasks:
+   - name: Create file
+     copy:
+      content: "HELLO1"
+      dest: /tmp/file1
+     notify: Print Hello3
+   - name: Create file2
+     copy:
+      content: "HELLO2"
+      dest: /tmp/file2
+     notify: Print Hello4
+  handlers:   
+   - name: Print Hello3
+     debug:
+      msg: "HELLO3"
+   - name: Print Hello4
+     debug:
+      msg: "HELLO4"

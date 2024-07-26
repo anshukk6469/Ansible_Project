@@ -1,0 +1,19 @@
+---
+- name: Ignoring errors
+  hosts: all
+  ignore_errors: true
+  become: true
+  tasks:
+   - name: Print Hello1
+     debug:
+      msg: "HELLO1"
+     ignore_errors: true
+   - name: Print Hello2
+     debug:
+      mmsg: "HELLO2"
+   - name: Print Hello3
+     debug:
+      msg: "HELLO3"
+   - name: Print Hello4
+     debug:
+      msg: "HELLO4"
