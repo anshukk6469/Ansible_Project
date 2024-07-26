@@ -1,5 +1,5 @@
-node1
-node2
+node1 
+node2 
 
 [dev]
 node1
@@ -10,3 +10,11 @@ node2
 [servers:children]
 dev
 prod
+
+[dev:vars]
+user_name=Deep3
+user_pass=Redhat3
+
+[prod:vars]
+user_name=Deep4
+user_pass=Redhat4

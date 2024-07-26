@@ -1,0 +1,11 @@
+---
+- name: Creating user with password
+  hosts: all
+  become: true
+  tasks:
+   - name: Printing the user
+     debug:
+      msg: "This is {{ user_name }} and password is {{ user_pass }}"
+     vars:
+      user_name: Deep9
+      user_pass: Redhat9
