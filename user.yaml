@@ -1,0 +1,14 @@
+---
+- name: Creating a user
+  hosts: all
+  become: true
+  tasks:
+   - name: adding a user named Deep
+     user:
+      name: Deep
+      state: present
+     register: user_info
+
+   - name: Printing variable
+     debug:
+      var: user_info
