@@ -57,8 +57,10 @@ resource "azurerm_linux_virtual_machine" "example" {
   location            = azurerm_resource_group.example.location
   size                = "Standard_D2s_v3"
   admin_username      = "adminuser"
-  admin_password = "Pa$$w0rd@6469"
-  disable_password_authentication = false
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCRgoGaQePUQb+fEQd/wLQrZdgvhUTs1KOR2IOPLdG5TM7Enxx+4LPtf+a1IQqri3oTY22NKhi42PAPrXooq492Up8wMjM1RyFpX5amraJXE2LEh2THe+4PJU6Qm0P9itoykKNPEFyoq6A7GFT1HFKwu4lsw7MSqYvNKkybjXwJDWqSkro2+cMgjHy7lRfes8WMZpgxVxZFs6cfFhca7DCWqXNBDg0q/z2jMnwBxoF1HrwkOia7dxbwrz+glfM6yVT6kzhcISfJTPBtzLo/hR1LDqOYttNmFp3bIhG6uHaU4UDnfmNt7m6jBOzy2GOxkIG/PxfIu3EyyIffiKHv9HhBKlxPoom70Q3G+CGy5yhK42Q3GA/QDKmaFU4l+NCECk8bNfip2cmF+XPLwdulZiSs4yuHusVkUGyT6bHTHCswm2ZQKweDHpISxs3LaukHxBw+rWibiEluo9xZ4nGwou3DwPa+f6GJ4QZ9R91Z/sEG2ZIKBxAYQvPexUJ2snu38gc= student@master"
+  }
   network_interface_ids = [
     azurerm_network_interface.example[count.index].id,
   ]
