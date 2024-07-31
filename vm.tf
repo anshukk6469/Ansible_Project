@@ -21,7 +21,7 @@ resource "azurerm_public_ip" "new" {
     environment = "Production"
   }
   provisioner "local-exec" {
-    command = "echo ${self.ip_address} > hosts"
+    command = "echo ${self.ip_address} >> hosts"
   }
 }
 resource "azurerm_virtual_network" "example" {
