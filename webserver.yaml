@@ -2,7 +2,6 @@
 - name: Installing webserver
   hosts: all
   become: true
-  remote_user: student
   tasks:
    - name: Installing httpd
      ansible.builtin.yum:
